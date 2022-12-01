@@ -1,0 +1,299 @@
+﻿New Table( "2021 Wins - Losses Model",
+	Add Rows( 32 ),
+	New Script(
+		"Source",
+		Open(
+			"$DOWNLOADS/Winning Percentage Model.xlsx",
+			Worksheets( "2021 Wins - Losses Model" ),
+			Use for all sheets( 1 ),
+			Concatenate Worksheets( 0 ),
+			Create Concatenation Column( 0 ),
+			Worksheet Settings(
+				1,
+				Has Column Headers( 1 ),
+				Number of Rows in Headers( 1 ),
+				Headers Start on Row( 1 ),
+				Data Starts on Row( 2 ),
+				Data Starts on Column( 1 ),
+				Data Ends on Row( 0 ),
+				Data Ends on Column( 0 ),
+				Replicated Spanned Rows( 1 ),
+				Replicated Spanned Headers( 0 ),
+				Suppress Hidden Rows( 1 ),
+				Suppress Hidden Columns( 1 ),
+				Suppress Empty Columns( 1 ),
+				Treat as Hierarchy( 0 ),
+				Multiple Series Stack( 0 ),
+				Import Cell Colors( 0 ),
+				Limit Column Detect( 0 ),
+				Column Separator String( "-" )
+			)
+		)
+	),
+	New Column( "Team Name",
+		Character,
+		"Nominal",
+		Set Values(
+			{"Arizona", "Atlanta", "Baltimore", "Buffalo", "Carolina", "Chicago",
+			"Cincinnati", "Cleveland", "Dallas", "Denver", "Detroit", "Green Bay",
+			"Houston", "Indianapolis", "Jacksonville", "Kansas City", "LA Chargers",
+			"LA Rams", "Las Vegas", "Miami", "Minnesota", "New England",
+			"New Orleans", "NY Giants", "NY Jets", "Philadelphia", "Pittsburgh",
+			"San Francisco", "Seattle", "Tampa bay", "Tennessee", "Washington"}
+		)
+	),
+	New Column( "Wins",
+		Numeric,
+		"Continuous",
+		Format( "Best", 15 ),
+		Set Values(
+			[11, 7, 8, 11, 5, 6, 10, 8, 12, 7, 3, 13, 4, 9, 3, 12, 9, 12, 10, 9, 8,
+			10, 9, 4, 4, 9, 9, 10, 7, 13, 12, 7]
+		)
+	),
+	New Column( "Losses",
+		Numeric,
+		"Continuous",
+		Format( "Best", 15 ),
+		Set Values(
+			[6, 10, 9, 6, 12, 11, 7, 9, 5, 10, 13, 4, 13, 8, 14, 5, 8, 5, 7, 8, 9, 7,
+			8, 13, 13, 8, 7, 7, 10, 4, 5, 10]
+		)
+	),
+	New Column( "Ties",
+		Numeric,
+		"Continuous",
+		Format( "Best", 15 ),
+		Set Values(
+			[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+			0, 0, 1, 0, 0, 0, 0, 0]
+		)
+	),
+	New Column( "Winning Percentage",
+		Numeric,
+		"Continuous",
+		Format( "Percent", 24, 2 ),
+		Set Values(
+			[0.6471, 0.4118, 0.4706, 0.6471, 0.2941, 0.3529, 0.5882, 0.4706, 0.7059,
+			0.4118, 0.2059, 0.7647, 0.2353, 0.5294, 0.1765, 0.7059, 0.5294, 0.7059,
+			0.5882, 0.5294, 0.4706, 0.5882, 0.5294, 0.2353, 0.2353, 0.5294, 0.5588,
+			0.5882, 0.4118, 0.7647, 0.7059, 0.4118]
+		)
+	),
+	New Column( "Yards per play",
+		Numeric,
+		"Continuous",
+		Format( "Best", 15 ),
+		Set Values(
+			[5.6, 5.1, 5.4, 5.7, 4.6, 4.9, 5.9, 5.5, 6, 5.4, 5.2, 5.8, 4.7, 5.6, 5,
+			5.9, 5.9, 6, 5.7, 4.8, 5.7, 5.7, 4.9, 4.7, 5, 5.7, 4.8, 6.1, 5.8, 6.1,
+			5.1, 5.1]
+		)
+	),
+	New Column( "Turnovers",
+		Numeric,
+		"Continuous",
+		Format( "Best", 15 ),
+		Set Values(
+			[15, 26, 26, 22, 29, 29, 21, 22, 20, 18, 23, 13, 22, 19, 29, 25, 22, 23,
+			24, 26, 13, 23, 18, 30, 27, 16, 20, 24, 13, 19, 25, 24]
+		)
+	),
+	New Column( "Penalty Yards",
+		Numeric,
+		"Continuous",
+		Format( "Best", 15 ),
+		Set Values(
+			[990, 753, 852, 980, 864, 914, 620, 1035, 1103, 711, 824, 678, 978, 688,
+			856, 925, 1033, 637, 1104, 825, 1043, 854, 811, 674, 860, 842, 831, 1066,
+			803, 874, 973, 743]
+		)
+	),
+	New Column( "Pressure Rate",
+		Numeric,
+		"Continuous",
+		Format( "Percent", 24, 1 ),
+		Set Values(
+			[0.259, 0.167, 0.23, 0.308, 0.261, 0.231, 0.245, 0.243, 0.276, 0.259,
+			0.205, 0.244, 0.207, 0.181, 0.242, 0.264, 0.25, 0.228, 0.244, 0.285,
+			0.262, 0.256, 0.247, 0.201, 0.214, 0.24, 0.261, 0.241, 0.221, 0.286,
+			0.24, 0.242]
+		)
+	),
+	New Column( "Opponent Yards per play",
+		Numeric,
+		"Continuous",
+		Format( "Best", 15 ),
+		Set Values(
+			[5.4, 5.6, 6, 4.6, 5.1, 5.3, 5.5, 5, 5.5, 5.3, 5.9, 5.4, 5.9, 5.6, 5.6,
+			5.9, 5.6, 5.2, 5.2, 5.3, 5.7, 5.1, 5.1, 5.3, 5.9, 5.2, 5.5, 5.1, 5.4,
+			5.2, 5.4, 5.7]
+		)
+	),
+	New Column( "Opponent Turnovers",
+		Numeric,
+		"Continuous",
+		Format( "Best", 15 ),
+		Set Values(
+			[27, 20, 15, 30, 16, 16, 21, 19, 34, 19, 19, 26, 25, 33, 9, 29, 21, 25,
+			15, 26, 24, 30, 25, 22, 14, 16, 22, 20, 18, 29, 22, 19]
+		)
+	),
+	New Column( "Net Yards per Pass Attempt",
+		Numeric,
+		"Continuous",
+		Format( "Best", 15 ),
+		Set Values(
+			[6.8, 6.1, 5.9, 6.3, 5, 5.3, 7.2, 5.8, 7.1, 6.2, 5.7, 6.9, 5.6, 6.1, 5.4,
+			6.8, 6.8, 7.3, 6.8, 5.6, 6.7, 6.9, 5.9, 5.1, 5.4, 6.5, 5.4, 7.7, 6.3,
+			6.9, 5.9, 5.8]
+		)
+	),
+	New Column( "Yards per carry",
+		Numeric,
+		"Continuous",
+		Format( "Best", 15 ),
+		Set Values(
+			[4.2, 3.7, 4.8, 4.8, 4, 4.2, 4, 5.1, 4.5, 4.5, 4.4, 4.3, 3.4, 5.1, 4.5,
+			4.5, 4.3, 4, 3.9, 3.5, 4.3, 4.4, 3.9, 4, 4.4, 4.9, 3.9, 4.3, 5, 4.3, 4.4,
+			4.3]
+		)
+	),
+	New Column( "Opponent Net Yards Per Pass Attempt",
+		Numeric,
+		"Continuous",
+		Format( "Best", 15 ),
+		Set Values(
+			[6.1, 6.6, 7.2, 4.8, 5.9, 6.2, 6.3, 5.6, 6.2, 6.1, 7.2, 5.8, 7.1, 6.3,
+			6.7, 6.7, 6.3, 6.1, 5.9, 5.9, 6.4, 5.5, 6, 6, 7.1, 6.1, 5.9, 5.9, 6.5,
+			5.6, 6.2, 6.8]
+		)
+	),
+	New Column( "Points Scored",
+		Numeric,
+		"Continuous",
+		Format( "Best", 15 ),
+		Set Values(
+			[449, 313, 387, 483, 304, 311, 460, 349, 530, 335, 325, 450, 280, 451,
+			253, 450, 474, 460, 374, 341, 425, 462, 364, 258, 310, 444, 343, 427,
+			395, 511, 419, 335]
+		)
+	),
+	New Column( "Points given up",
+		Numeric,
+		"Continuous",
+		Format( "Best", 15 ),
+		Set Values(
+			[366, 459, 392, 289, 404, 407, 376, 371, 358, 322, 467, 371, 452, 365,
+			457, 364, 459, 372, 439, 373, 426, 303, 335, 416, 504, 385, 398, 365,
+			366, 353, 354, 434]
+		)
+	),
+	New Column( "Total yards",
+		Numeric,
+		"Continuous",
+		Format( "Best", 15 ),
+		Set Values(
+			[6352, 5164, 6440, 6493, 5081, 5225, 6145, 5791, 6919, 5618, 5484, 6215,
+			4727, 5901, 5191, 6746, 6634, 6325, 6184, 5219, 6168, 6008, 5177, 4884,
+			5208, 6119, 5361, 6387, 5506, 6901, 5822, 5502]
+		)
+	),
+	New Column( "Yards Given Up",
+		Numeric,
+		"Continuous",
+		Format( "Best", 15 ),
+		Set Values(
+			[5597, 6194, 6178, 4637, 5201, 5384, 5964, 5296, 5967, 5544, 6456, 5579,
+			6535, 5834, 6002, 6272, 6122, 5863, 5732, 5738, 6522, 5284, 5410, 6032,
+			6760, 5590, 6139, 5270, 6445, 5635, 5607, 6108]
+		)
+	),
+	New Column( "Time of possession",
+		Numeric,
+		"Continuous",
+		Format( "Best", 15 ),
+		Set Values(
+			[531, 478, 565, 538, 522, 515, 537, 520, 521, 523, 496, 560, 481, 545,
+			465, 526, 501, 493, 527, 518, 503, 520, 520, 488, 473, 508, 509, 529,
+			435, 518, 566, 522]
+		)
+	),
+	New Column( "Defensive Points per 100 yards",
+		Numeric,
+		"Continuous",
+		Format( "Best", 15 ),
+		Set Values(
+			[5.761964736, 8.888458559, 6.086956522, 4.450947174, 7.95119071,
+			7.789473684, 6.118795769, 6.406492834, 5.174158115, 5.731577074,
+			8.515681984, 5.969428801, 9.562090121, 6.185392306, 8.803698709,
+			5.395790098, 6.918902623, 5.881422925, 7.098965071, 7.14696302,
+			6.906614786, 5.043275632, 6.47092911, 8.517608518, 9.677419355,
+			6.291877758, 7.423988062, 5.714733052, 6.647293861, 5.115200696,
+			6.080384748, 7.888040712]
+		)
+	),
+	New Column( "Pass Play Call Percentage",
+		Numeric,
+		"Continuous",
+		Format( "Percent", 24, 2 ),
+		Set Values(
+			[0.5644, 0.6093, 0.5637, 0.5921, 0.5886, 0.5581, 0.5948, 0.5398, 0.5961,
+			0.5608, 0.5956, 0.5861, 0.5842, 0.5257, 0.6187, 0.6236, 0.5931, 0.6288,
+			0.625, 0.5971, 0.5854, 0.5427, 0.5147, 0.601, 0.6332, 0.5013, 0.6344,
+			0.5161, 0.5671, 0.6646, 0.5122, 0.5542]
+		)
+	),
+	New Column( "Success Rate",
+		Numeric,
+		"Continuous",
+		Format( "Percent", 24, 0 ),
+		Set Values(
+			[0.5, 0.44, 0.5, 0.51, 0.44, 0.44, 0.47, 0.47, 0.5, 0.47, 0.46, 0.51,
+			0.42, 0.48, 0.46, 0.55, 0.51, 0.51, 0.5, 0.47, 0.45, 0.51, 0.43, 0.41,
+			0.45, 0.5, 0.44, 0.48, 0.48, 0.53, 0.47, 0.48]
+		)
+	),
+	New Column( "Explosive Play Rate",
+		Numeric,
+		"Continuous",
+		Format( "Percent", 24, 0 ),
+		Set Values(
+			[0.1, 0.09, 0.1, 0.1, 0.08, 0.09, 0.1, 0.12, 0.1, 0.1, 0.1, 0.09, 0.07,
+			0.11, 0.08, 0.1, 0.1, 0.09, 0.1, 0.07, 0.11, 0.12, 0.08, 0.07, 0.09,
+			0.12, 0.07, 0.11, 0.11, 0.1, 0.09, 0.09]
+		)
+	),
+	New Column( "Studentized Resid Winning Percentage",
+		Numeric,
+		"Continuous",
+		Format( "Best", 12 ),
+		Set Property( "Notes", "Fit Least Squares Studentized Residuals" ),
+		Set Values(
+			[-0.144856408514561, 1.14375101419173, -0.0469789516359523,
+			-0.12994884196155, -0.240647214202049, 0.831244309105788,
+			0.387011447155423, 1.71868946657551, 1.35453258059067, -1.77790871475076,
+			-1.6708262359994, 1.36050236435367, -0.504099327646517,
+			-0.357687421193288, -0.945052409835541, 0.916340839879426,
+			0.0819631054965266, -0.79664046004824, 1.35450314147296,
+			-1.11004411273328, 0.532484074768897, -0.987975194684054,
+			-0.0922678751039662, -1.01074490858681, 0.316209737000751,
+			-0.15141713300358, 1.37468159725091, -1.26079074348423,
+			-0.817428322304195, -1.53127471152026, 1.5687142210726,
+			-0.0293222332072683]
+		)
+	)
+) << Run Formulas;
+Multivariate(
+	Y(
+		:Winning Percentage, :Yards per play, :Turnovers, :Penalty Yards,
+		:Pressure Rate, :Opponent Yards per play, :Opponent Turnovers,
+		:Net Yards per Pass Attempt, :Yards per carry,
+		:Opponent Net Yards Per Pass Attempt, :Points Scored, :Points given up,
+		:Total yards, :Yards Given Up, :Time of possession,
+		:Defensive Points per 100 yards, :Pass Play Call Percentage, :Success Rate,
+		:Explosive Play Rate
+	),
+	Estimation Method( "Row-wise" ),
+	Scatterplot Matrix( 1 )
+);
